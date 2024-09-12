@@ -1,0 +1,383 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: serif;
+}
+
+
+/* 共通のクラス */
+.center{
+    text-align: center;
+}
+
+.no_line{
+    text-decoration: none;
+}
+
+.background_yellow{
+    background-color: #ffff00;
+}
+
+/*モーダル本体の指定 + モーダル外側の背景の指定*/
+.modal_container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: rgba(0,0,0, 0.5);
+    padding: 40px 20px;
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    box-sizing: border-box;
+}
+  
+/*モーダル本体の擬似要素の指定*/
+.modal_container:before{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+  
+/*モーダル本体に「active」クラス付与した時のスタイル*/
+.modal_container.active{
+    opacity: 1;
+    visibility: visible;
+}
+  
+ /*モーダル枠の指定*/
+.modal_body{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 500px;
+    width: 90%;
+}
+
+/*モーダル内のコンテンツの指定*/
+.modal_content{
+    background: #ffffff;
+    text-align: center;
+    width: 1000px;
+    height: 500px;
+    position: absolute;
+    top: -250px;
+    left: -250px;
+    border-radius: 15px;
+}
+
+
+header{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #CAB8D9;
+}
+
+
+/* ハンバーガーメニュー */
+.sidemenu{
+    position: absolute;
+    height: 100vh;
+    width: 200px;
+    left: -200px;
+    top: 0;
+    background: #CAB8D9;
+    transition: .7s;
+}
+
+.sidemenu ul{
+    padding-top: 80px;
+}
+
+.sidemenu ul li{
+    list-style-type: none;
+}
+
+.hamburgermenu{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 40px;
+    height: 30px;
+    transition: 1s;
+}
+
+.inline{
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: 1s;
+    border-radius: 4px;
+}
+
+#line1{
+    top: 0;
+}
+
+#line2{
+    top: 14px;
+}
+
+#line3{
+    bottom: 0px;
+}
+
+.in{
+    transform: translateX(100%);
+}
+
+.line1_1,.line2_1,.line3_1{
+    background: #ffffff;
+}
+
+.line1_1{
+    transform: translateY(13px) rotate(-45deg);
+    top: 0;
+}
+
+.line2_1{
+    opacity: 0;
+}
+
+.line3_1{
+    transform: translateY(-13px) rotate(45deg);
+    bottom: 0;
+}
+
+@media (max-width: 1200px){
+    .hamburgermenu{
+    display: block;
+    }
+}
+
+.menu{
+    position: relative;
+}
+
+.menu::before{
+    background: #ffffff;
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: transform .5s;
+}
+
+.menu:hover::before{
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+.menu a{
+    font-size: 25px;
+    color: #ffffff;
+}
+
+
+/* 検索バー */
+.search_bar{
+    width: 700px;
+    font-size: 31px;
+}
+
+.sort_button{
+    position: relative;
+    top: 5px;
+    right: -5px;
+    font-size: 30px;
+}
+
+.sort_button:hover{
+    transform: scale(1.1);
+}
+
+
+/* 追加ボタン */
+
+
+/*モーダルを開くボタン*/
+.open_add{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 60px;
+}
+
+.open_add:hover{
+    transform: scale(1.1);
+}
+
+
+/* モーダルウィンドウ(追加) */
+.add_form{
+    width: 1000px;
+    height: 500px;
+}
+
+#add_line1{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    justify-content: left;
+}
+
+.add_title{
+    width: 755px;
+    height: 35px;
+    font-size: 25px;
+    border: solid 1px #000000;
+    border-radius: 8px;
+}
+
+.add_deadline{
+    width: 160px;
+    height: 35px;
+    font-size: 25px;
+}
+
+.add_importance{
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+}
+
+#add_line2{
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+}
+
+.add_memo{
+    width: 960px;
+    height: 380px;
+    font-size: 25px;
+    border-radius: 8px;
+}
+
+.add_button{
+    margin-top: 458px;
+    width: 70px;
+    border: none;
+    border-radius: 5px;
+    background-color: #CAB8D9;
+    font-size: 23px;
+    color: #ffffff;
+}
+
+.add_button:hover{
+    opacity: 0.6;
+}
+
+
+/* モーダルウィンドウ(編集) */
+.edit_form{
+    width: 1000px;
+    height: 500px;
+}
+
+#edit_line1{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    justify-content: left;
+}
+
+.edit_title{
+    width: 700px;
+    height: 35px;
+    font-size: 25px;
+    border: solid 1px #000000;
+    border-radius: 8px;
+}
+
+.edit_deadline{
+    width: 160px;
+    height: 35px;
+    font-size: 25px;
+}
+
+.edit_importance{
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+}
+
+.remove_button{
+    position: absolute;
+    top: -1px;
+    right: -47px;
+    color: #CAB8D9;
+    font-size: 40px;
+}
+
+.remove_button:hover{
+    transform: scale(1.2);
+}
+
+#edit_line2{
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+}
+
+.edit_memo{
+    width: 960px;
+    height: 380px;
+    font-size: 25px;
+    border-radius: 8px;
+}
+
+.save_button{
+    margin-top: 458px;
+    width: 70px;
+    border: none;
+    border-radius: 5px;
+    background-color: #CAB8D9;
+    font-size: 23px;
+    color: #ffffff;
+}
+
+.save_button:hover{
+    opacity: 0.6;
+}
+
+
+/* メモ一覧 */
+.memo_list{
+    list-style: none;
+    width: 700px;
+    margin: 50px 610px 0 610px;
+}
+
+.open_edit{
+    word-wrap: break-word;
+    border: solid 2px #D9D9D9;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 0 5px;
+    font-size: 22px;
+}
+
+.title{
+    border-bottom: solid 1px #D9D9D9;
+}

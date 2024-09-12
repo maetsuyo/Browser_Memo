@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: serif;
+}
+
+
+/* 共通のクラス */
+.center{
+    text-align: center;
+}
+
+.no_line{
+    text-decoration: none;
+}
+
+.background_yellow{
+    background-color: #ffff00;
+}
+
+
+header{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #CAB8D9;
+}
+
+
+/* ハンバーガーメニュー */
+.sidemenu{
+    position: absolute;
+    height: 100vh;
+    width: 200px;
+    left: -200px;
+    top: 0;
+    background: #CAB8D9;
+    transition: .7s;
+}
+
+.sidemenu ul{
+    padding-top: 80px;
+}
+
+.sidemenu ul li{
+    list-style-type: none;
+}
+
+.hamburgermenu{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 40px;
+    height: 30px;
+    transition: 1s;
+}
+
+.inline{
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: 1s;
+    border-radius: 4px;
+}
+
+#line1{
+    top: 0;
+}
+
+#line2{
+    top: 14px;
+}
+
+#line3{
+    bottom: 0px;
+}
+
+.in{
+    transform: translateX(100%);
+}
+
+.line1_1,.line2_1,.line3_1{
+    background: #ffffff;
+}
+
+.line1_1{
+    transform: translateY(13px) rotate(-45deg);
+    top: 0;
+}
+
+.line2_1{
+    opacity: 0;
+}
+
+.line3_1{
+    transform: translateY(-13px) rotate(45deg);
+    bottom: 0;
+}
+
+@media (max-width: 1200px){
+    .hamburgermenu{
+    display: block;
+    }
+}
+
+.menu{
+    position: relative;
+}
+
+.menu::before{
+    background: #ffffff;
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: transform .5s;
+}
+
+.menu:hover::before{
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+.menu a{
+    font-size: 25px;
+    color: #ffffff;
+}
+
+
+/* 検索バー */
+.search_bar{
+    font-size: 31px;
+    width: 700px;
+}
+
+.sort_button{
+    position: relative;
+    top: 5px;
+    right: -5px;
+    font-size: 30px;
+}
+
+
+.cd_heading{
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+/* 期限が近いメモ一覧 */
+.memo_list{
+    list-style: none;
+    width: 700px;
+    margin: 0 610px 0 610px;
+}
+
+.days_remaining{
+    font-size: 24px;
+}
+
+.open_edit{
+    word-wrap: break-word;
+    border: solid 2px #D9D9D9;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    padding: 0 5px 3px 5px;
+    font-size: 22px;
+}
+
+.title{
+    border-bottom: solid 1px #D9D9D9;
+}
